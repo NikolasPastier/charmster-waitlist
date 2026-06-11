@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg: #0B0910;
+    --surface: #14111C;
+    --stroke: #2C2740;
+    --text: #F6F4FA;
+    --aura: linear-gradient(135deg, #A24BFF 0%, #FF4D94 30%, #FF3B5E 55%, #FF7A45 80%, #FFC23D 100%);
+    --score: linear-gradient(90deg, #4C8DFF 0%, #8A5CFF 40%, #FF4D94 70%, #FFC23D 100%);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+    line-height: 1;
+}
+
+.text-aura {
+    background: var(--aura);
+    background-size: 220% 220%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: auraShift 9s ease infinite;
+}
+
+.score-text {
+    background: var(--score);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes auraShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.glass {
+    background: rgba(29, 25, 40, 0.55);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(44, 39, 64, 0.8);
+}
+
+.glass-strong {
+    background: rgba(11, 9, 16, 0.5);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
