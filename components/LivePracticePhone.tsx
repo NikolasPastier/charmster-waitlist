@@ -11,9 +11,30 @@ const floatTransition = { duration: 6, repeat: Infinity, ease: "easeInOut" }
 
 export default function LivePracticePhone() {
     const tiltRef = useRef<HTMLDivElement>(null)
+    const videoRef = useRef<HTMLVideoElement>(null)
     const [timer, setTimer] = useState("4:45")
     const [progress, setProgress] = useState(64)
     const [speaking, setSpeaking] = useState(true)
+
+    // Force muted autoplay. React's `muted` JSX attribute is unreliable, so set it on the
+    // element directly and kick off playback — otherwise Safari/Chrome block autoplay.
+    useEffect(() => {
+        const v = videoRef.current
+        if (!v) return
+        v.muted = true
+        v.defaultMuted = true
+        const tryPlay = () => { v.play().catch(() => {}) }
+        tryPlay()
+        v.addEventListener("loadeddata", tryPlay)
+        const onVisible = () => {
+            if (document.visibilityState === "visible") tryPlay()
+        }
+        document.addEventListener("visibilitychange", onVisible)
+        return () => {
+            v.removeEventListener("loadeddata", tryPlay)
+            document.removeEventListener("visibilitychange", onVisible)
+        }
+    }, [])
 
     // Live timer
     useEffect(() => {
@@ -69,6 +90,7 @@ export default function LivePracticePhone() {
                 >
                     {/* full-bleed avatar video */}
                     <video
+                        ref={videoRef}
                         className="absolute inset-0 h-full w-full object-cover [filter:saturate(1.05)_contrast(1.03)]"
                         autoPlay
                         muted
