@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal"
 
 const steps = [
     { n: "1", title: "Pick a scenario", body: "First-date jitters, opening a conversation, handling a tricky question, or subtle flirting — choose where you want reps." },
-    { n: "2", title: "Talk with Mia", body: "Have a natural, spoken conversation. Mia reacts to your tone and keeps it real — no scripts, no pressure." },
+    { n: "2", title: "Talk with your practice partner", body: "Have a natural, spoken conversation with the partner you pick — Mia, Ava, Sofia, Mei or Nia. They react to your tone and keep it real — no scripts, no pressure." },
     { n: "3", title: "Get instant feedback", body: "See exactly how you came across with the How She'd Feel report — then run it back and watch your score climb." },
 ]
 

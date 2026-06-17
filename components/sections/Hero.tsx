@@ -30,7 +30,7 @@ export default function Hero({ source }: { source?: string }) {
                     </Reveal>
                     <Reveal delay={0.2}>
                         <p className="mx-auto mt-6 max-w-xl text-lg text-text-secondary lg:mx-0">
-                            Talk out loud with <strong className="text-text">Mia</strong>, your AI dating coach. Have real,
+                            Talk out loud with a practice partner who feels real — coached by a mentor you choose. Have real,
                             low-pressure voice conversations and get instant feedback on exactly how you came across — so the
                             real thing finally feels easy.
                         </p>
