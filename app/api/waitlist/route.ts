@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
-import { supabaseAdmin } from "@/lib/supabase/server"
+import { getSupabaseAdmin } from "@/lib/supabase/server"
 import { sendConfirmationEmail } from "@/lib/email"
 
 const Body = z.object({
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const email = parsed.data.email.toLowerCase().trim()
     const source = parsed.data.source ?? null
 
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await getSupabaseAdmin()
         .from("waitlist")
         .insert({ email, source })
         .select("confirm_token")
