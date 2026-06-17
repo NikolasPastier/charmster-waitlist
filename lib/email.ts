@@ -1,10 +1,9 @@
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM = process.env.WAITLIST_FROM_EMAIL ?? "Charmster <hello@charmster.app>"
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://charmster.app"
-
 export async function sendConfirmationEmail(email: string, token: string) {
+    const resend = new Resend(process.env.RESEND_API_KEY)
+    const FROM = process.env.WAITLIST_FROM_EMAIL ?? "Charmster <hello@charmster.app>"
+    const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://charmster.app"
     const confirmUrl = `${SITE}/api/confirm?token=${token}`
     await resend.emails.send({
         from: FROM,
