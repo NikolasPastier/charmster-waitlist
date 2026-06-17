@@ -7,9 +7,8 @@ export default function Footer() {
                     <img src="/logo-wordmark.png" alt="Charmster" className="h-4 w-auto object-contain" />
                 </div>
                 <div className="flex gap-6 text-sm text-text-secondary">
-                    <a href="https://tiktok.com/@charmster" className="transition-colors hover:text-text">TikTok</a>
-                    <a href="https://instagram.com/charmster" className="transition-colors hover:text-text">Instagram</a>
-                    <a href="https://x.com/charmster" className="transition-colors hover:text-text">X</a>
+                    <a href="https://www.tiktok.com/@charmster.app" className="transition-colors hover:text-text">TikTok</a>
+                    <a href="https://www.instagram.com/charmster.app/" className="transition-colors hover:text-text">Instagram</a>
                     <a href="/privacy" className="transition-colors hover:text-text">Privacy</a>
                 </div>
                 <p className="text-xs text-text-muted">© {new Date().getFullYear()} Charmster. All rights reserved.</p>
